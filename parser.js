@@ -3,8 +3,9 @@ import { getArgs } from './helpers/args.js';
 import { getParser } from './services/api.service.js';
 import { printHelp, printSuccess, printError, printParser } from './services/log.service.js';
 import { saveUrlValue, TOKEN_DICTIONARY, getUrlValue } from './services/storage.service.js';
-
+import { downloadEd } from './services/download.service.js';
 /* https://openweathermap.org/api */
+
 const saveURL = async (url) => {
     if (!url.length) {
         printError('Не передан url');
@@ -24,7 +25,8 @@ const getForcast = async () => {
         console.log('start');
         const url = process.env.URL ?? await getUrlValue(TOKEN_DICTIONARY.url);
         const parser = await getParser(url);
-        printParser(parser);
+      //  printParser(parser);
+        downloadEd();
     } catch (e) {
         if (e?.response?.status == 404) {
             printError('Неверно указан город');
