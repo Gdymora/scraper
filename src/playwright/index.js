@@ -1,4 +1,5 @@
 const playwright = require('playwright');
+
     async function mostActive() {
         const browser = await playwright.chromium.launch({
             headless: true // set this to true
