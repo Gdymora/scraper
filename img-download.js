@@ -44,11 +44,14 @@ class Download {
         let books = document.querySelectorAll(".isv-r");
         books.forEach((book) => {
           let title = book.innerHTML.trim();
-    //  let href = book.querySelector("a");
-      let href = book.querySelector("a").innerHTML;
+          //  let href = book.querySelector("a");
+          let href = book.querySelector(".islir").innerHTML;
+          src = href.replace(/.*?:\/\//g, "");
+
           data.push({
             title,
-            href
+            href,
+            src
           });
         });
         return data;
@@ -176,9 +179,9 @@ class Download {
 }
 
 const down = new Download();
-down.scanerImg('');
-down.getImgParser('');
-down.formExample();
+//down.scanerImg('https://www.google.com/search?q=');
+down.getImgParser('https://www.google.com/search?q=');
+//down.formExample();
 //down.getGson();
 
 
