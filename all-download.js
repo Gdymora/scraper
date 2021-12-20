@@ -1,4 +1,5 @@
 import { chromium, webkit} from 'playwright';
+
 async function downloadSite() {
     const browser = await chromium.launch();
     const page = await browser.newPage();
